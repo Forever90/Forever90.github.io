@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Title</title>
+
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/baseStyle.css" rel="stylesheet">
+    <link href="css/music.css" rel="stylesheet">
+
+    <script src="js/bootstrap/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <script src="js/baseScripts.js"></script>
+    <script src="js/musicPlayer.js"></script>
+</head>
+
+<body>
+<div id="form-div">
+    <form id="form1" class="form-inline" onsubmit="return false" action="#" method="get">
+        <!--<p><input type="text" class="form-control" name="musicName" placeholder="请输入要查询的歌曲"></p>&lt;!&ndash;用户名：<input name="musicName" type="text" id="txtUserName" tabindex="1" size="15" value=""/>&ndash;&gt;-->
+        <!--<p><button style="width: 30%;height: 30px;display:block;margin: 0 auto" type="button" class="btn btn-info" onclick="searchSongs()">搜索</button></p>-->
+        <div class="form-group">
+            <input type="text" class="form-control" name="musicName" placeholder="请输入要查询的歌曲">
+        </div>
+        <button type="button" class="btn btn-info" onclick="searchSongs()">搜索</button>
+    </form>
+</div>
+
+<div class="main">
+    <!--查询列表-->
+    <div class="main__inner">
+        <!--搜索结果 S-->
+        <div class="result">
+            <!-- 单曲 -->
+            <div class="js_search_tab_cont search_tab_cont" id="song_box" style="display: block;">
+                <!--<div class="mod_songlist_toolbar">-->
+                    <!--<a href="javascript:;" class="mod_btn js_all_play"><i class="mod_btn__icon_play"></i>播放全部</a>-->
+                    <!--<a href="javascript:;" class="mod_btn js_all_fav"><i class="mod_btn__icon_add"></i>添加到</a>-->
+                    <!--<a href="javascript:;" class="mod_btn js_all_down"><i class="mod_btn__icon_down"></i>下载</a>-->
+                    <!--<a href="javascript:;" class="mod_btn js_batch"><i class="mod_btn__icon_batch"></i>批量操作</a>-->
+                <!--</div>-->
+                <div class="mod_songlist">
+                    <ul class="songlist__header">
+                        <!--<li class="songlist__edit songlist__edit&#45;&#45;check sprite">-->
+                            <!--<input type="checkbox" class="songlist__checkbox js_check_all">-->
+                        <!--</li>-->
+                        <li class="songlist__header_name">歌曲</li>
+                        <li class="songlist__header_author">歌手</li>
+                        <li class="songlist__header_album">专辑</li>
+                        <li class="songlist__header_time">时长</li>
+                    </ul>
+                    <ul class="songlist__list">
+                        <!--<li class="" mid="248052871" ix="0">-->
+                            <!--&lt;!&ndash;-->
+                            <!--hover : songlist__item&#45;&#45;hover-->
+                            <!--偶数行：songlist__item&#45;&#45;even-->
+                            <!--&ndash;&gt;-->
+                            <!--<div class="songlist__item" >&lt;!&ndash;onmouseover="this.className=(this.className+' songlist__item&#45;&#45;hover')" onmouseout="this.className=this.className.replace(/ songlist__item&#45;&#45;hover/, '')"-->
+                                <!--&lt;!&ndash;<div class="songlist__edit songlist__edit&#45;&#45;check sprite">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<input type="checkbox" class="songlist__checkbox">&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--<div class="songlist__songname">-->
+
+                                    <!--&lt;!&ndash;<i class="songlist__icon songlist__icon_exclusive sprite" title="独家"></i>&ndash;&gt;-->
+
+
+                                    <!--&lt;!&ndash;<a href="https://y.qq.com/n/yqq/mv/v/s0033o52fp3.html" class="songlist__icon songlist__icon_mv sprite" rel="noopener" target="_blank" title="MV"><span class="icon_txt">MV</span></a>&ndash;&gt;-->
+
+
+                                    <!--<span class="songlist__songname_txt"><a href="https://y.qq.com/n/yqq/song/003HwrGT2JluWX.html" class="js_song" title="问情 (Live) ">问情 (Live)</a></span>-->
+
+                                    <!--<div class="mod_list_menu">-->
+                                        <!--<a href="javascript:;" class="list_menu__item list_menu__play js_play" title="播放">-->
+                                            <!--<i class="list_menu__icon_play"></i>-->
+                                            <!--<span class="icon_txt">播放</span>-->
+                                        <!--</a>-->
+                                        <!--<a href="javascript:;" class="list_menu__item list_menu__add js_fav" title="添加到歌单" aria-haspopup="true">-->
+                                            <!--<i class="list_menu__icon_add"></i>-->
+                                            <!--<span class="icon_txt">添加到歌单</span>-->
+                                        <!--</a>-->
+
+                                        <!--&lt;!&ndash;<a href="javascript:;" class="list_menu__item list_menu__down js_down" title="VIP下载" aria-haspopup="true" data-target="menu_down">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<i class="list_menu__icon_down_vip"></i>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<span class="icon_txt">VIP下载</span>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<a href="javascript:;" class="list_menu__item list_menu__share js_share" title="分享" aria-haspopup="true">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<i class="list_menu__icon_share"></i>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<span class="icon_txt">分享</span>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="songlist__artist" title="周华健 / 肖战">-->
+
+
+                                    <!--<a href="https://y.qq.com/n/yqq/singer/003NThQh3ujqIo.html" data-singermid="003NThQh3ujqIo" data-singerid="96" title="周华健" class="singer_name">周华健</a>-->
+                                    <!--/-->
+                                    <!--<a href="https://y.qq.com/n/yqq/singer/0022eAG537I1bg.html" data-singermid="0022eAG537I1bg" data-singerid="1060985" title="肖战" class="singer_name">肖战</a>-->
+
+                                <!--</div>-->
+                                <!--<div class="songlist__album">-->
+                                    <!--<a data-albummid="001l7Wff4Tc47O" data-albumid="9746516" href="https://y.qq.com/n/yqq/album/001l7Wff4Tc47O.html" title="中国梦之声我们的歌 第8期" class="album_name">中国梦之声<span class="c_tx_highlight">我们的歌</span> 第8期</a>-->
+                                <!--</div>-->
+                                <!--<div class="songlist__time">04:04</div>-->
+                                <!--<div class="songlist__other">-->
+
+
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+            <!-- 专辑 -->
+            <div class="js_search_tab_cont search_tab_cont" id="album_box" style="display: none;"></div>
+            <!-- MV -->
+            <div class="js_search_tab_cont search_tab_cont" id="mv_box" style="display: none;"></div>
+            <!-- 歌单 -->
+            <div class="js_search_tab_cont search_tab_cont" id="playlist_box" style="display: none;"></div>
+            <!-- 用户 -->
+            <div class="js_search_tab_cont search_tab_cont" id="user_box" style="display: none;"></div>
+            <!-- 歌词 -->
+            <button style="display:none;" class="mod_btn" id="defaultCopy"><i class="mod_btn__icon_copy"></i>复制歌词</button>
+            <div class="js_search_tab_cont search_tab_cont" id="lyric_box" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+<!--播放器-->
+<div class="player">
+    <div id="playerModule">
+        <audio id="musicPlayer"></audio>
+        <div style="float: left">
+            <!--<button style="background-image: url(res/last.png);width:32px;height:32px;background-size: 100% 100%" onclick=""></button>-->
+            <!--<button style="background-image: url(res/play.png);width:32px;height:32px;background-size: 100% 100%" onclick="playMusic()"></button>-->
+            <!--<button style="background-image: url(res/next.png);width:32px;height:32px;background-size: 100% 100%" onclick=""></button>-->
+            <img id="last" src="res/last.png" style="width:32px;height:32px" onclick=""/>
+            <img id="play" src="res/play.png" style="width:32px;height:32px" onclick="controlMusic()"/>
+            <img id="next" src="res/next.png" style="width:32px;height:32px" onclick=""/>
+        </div>
+        <div class="slider" style="float: left">
+            <div class="buffer"></div>
+            <div class="processor"></div>
+            <div class="controller"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
