@@ -3,8 +3,8 @@
 */
 
 #form-div{
-    top:10px;
-    position:absolute;
+    margin-top:10px;
+    /*position:absolute;*/
 }
 #playerModule {
     background-color: black;
@@ -457,7 +457,7 @@
 .songlist__header,.songlist__item {
     position: relative;
     padding-left: 46px;
-    padding-right: 95px
+    /*padding-right: 95px*/
 }
 
 .songlist__item {
@@ -516,15 +516,19 @@
     float: left;
     padding-left: 15px;
     margin-right:5px;
-    width: 33%;
+    width: 25%;
     box-sizing: border-box
 }
 
 .songlist__header_time,.songlist__time {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    width: 50px
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0px;*/
+    /*width: 50px*/
+    float: left;
+    padding-left: 15px;
+    width: 5%;
+    box-sizing: border-box
 }
 
 .songlist__header_other,.songlist__other {
@@ -1553,9 +1557,9 @@ body:last-child .songlist_tips .popup_data_detail__arrow {
     padding-left: 20px
 }
 
-.songlist__header,.songlist__item {
-    padding-right: 112px
-}
+/*.songlist__header,.songlist__item {*/
+    /*padding-right: 112px*/
+/*}*/
 
 .songlist__header_time,.songlist__time {
     right: 64px
