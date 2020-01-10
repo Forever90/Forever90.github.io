@@ -38,7 +38,7 @@
             type: "GET",
             dataType: "json",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://182.150.21.240:8888/musicSearch" ,
+            url: "http://118.24.100.13:8888/musicSearch" ,
             data: $('#form1').serialize(),
             success: function (result) {
                 console.log(result);//在浏览器中打印服务端返回的数据(调试用)
@@ -67,7 +67,7 @@
             type: "GET",
             dataType: "text",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://182.150.21.240:8888/musicPlay" ,
+            url: "http://118.24.100.13:8888/musicPlay" ,
             data: {mid:mid},
             success: function (url) {
                 console.log(url);//在浏览器中打印服务端返回的数据(调试用)
