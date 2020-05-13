@@ -6,6 +6,11 @@
     background-color: black;
 }
 
+.title ul li a {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+
 .title ul,li {
     padding: 0;
     margin: 0 auto;
