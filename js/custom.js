@@ -9,6 +9,11 @@ $(function(){
     // var block = jQuery(".nav .block");
     // block.css({"left":init.position().left-3});
     // nav.hover(function(){},function(){ block.animate({"left":init.position().left-3},100); });
+    nav.hover(function(){
+        parent.setHeight(300);
+    },function(){
+        parent.setHeight(65);
+    });
 
     jQuery(".nav").slide({
         type:"menu",
