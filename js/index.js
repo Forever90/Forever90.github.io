@@ -13,7 +13,7 @@ $(function(){
 
 function setHeight(value){
     admin.height(value);
-    admin.css({
-        "transition": "color 0.4s ease-in-out,background-color 0.4s ease-in-out"
-    })
+    admin.css(
+        "transition", "height 0.2s ease-in-out"
+    )
 }
