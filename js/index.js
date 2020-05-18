@@ -17,3 +17,28 @@ function setHeight(value){
         "transition", "height 0.2s ease-in-out"
     )
 }
+
+function onEventListener(event){
+    console.log(event);
+    switch (event.type){
+        case "mouseenter":
+            {
+                if(event.currentTarget.id === "japan"){
+                    setHeight(300);
+                }
+            }
+            break;
+        case "mouseleave":
+            {
+                setHeight(65);
+            }
+            break;
+        case "mousedown":
+            if(event.currentTarget.id === "music"){
+                window.location.href = "./music.html"
+            }
+            break;
+        default:
+            break;
+    }
+}

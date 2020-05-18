@@ -5,25 +5,38 @@ $(function(){
     //导航菜单
     var ind = 4;
     var ul= jQuery(".m");
-
-    ul.hover(function(event){
-        switch (event.currentTarget.id){
-            case "japan":
-                if(typeof parent.setHeight !== "undefined"){
-                   parent.setHeight(300);
-                }
-                break;
-            case "":
-                break;
-            default:
-                break;
+    ul.mousedown(function(event){
+        if(typeof parent.setHeight !== "undefined"){
+            parent.onEventListener(event);
+        }
+    });
+    ul.hover(function(event) {
+        if(typeof parent.setHeight !== "undefined"){
+            parent.onEventListener(event);
         }
     },function(event){
         if(typeof parent.setHeight !== "undefined"){
-            parent.setHeight(65);
+            parent.onEventListener(event);
         }
-
     });
+    // ul.hover(function(event){
+    //     switch (event.currentTarget.id){
+    //         case "japan":
+    //             if(typeof parent.setHeight !== "undefined"){
+    //                parent.setHeight(300);
+    //             }
+    //             break;
+    //         case "":
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // },function(event){
+    //     if(typeof parent.setHeight !== "undefined"){
+    //         parent.setHeight(65);
+    //     }
+    //
+    // });
 
     jQuery(".nav").slide({
         type:"menu",
