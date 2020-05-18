@@ -1,8 +1,9 @@
 *{ margin:0; padding:0; }
 
 .admin{
-    background:#fff;
+    /*background:#fff;*/
     position: relative;
+    line-height: 0;
     height: 65px;
     /*right:0;*/
     /*bottom:0;*/

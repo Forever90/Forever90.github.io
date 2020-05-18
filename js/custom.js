@@ -10,7 +10,7 @@ $(function(){
         switch (event.currentTarget.id){
             case "japan":
                 if(typeof parent.setHeight !== "undefined"){
-                    parent.setHeight(300);
+                   parent.setHeight(300);
                 }
                 break;
             case "":
