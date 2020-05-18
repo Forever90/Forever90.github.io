@@ -102,6 +102,7 @@ html,body{
 /*.nav .sub li a{display:block;  !*border-bottom:1px solid #E6E4E3;*! padding:8px 0; height:28px; line-height:28px; color:#666;}*/
 .nav .sub li:hover{
     background-color: #FFFFFF;
+    opacity: 0.6;
     border-bottom:2px solid #2b2b2b;
 }
 .nav .sub li a:hover{color:#1E95FB;}
