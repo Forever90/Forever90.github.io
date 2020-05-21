@@ -31,20 +31,6 @@
                     singer: 'Campsite Dream',
                     songUrl: './res/songs/1480916413.mp3',//http://other.player.rh01.sycdn.kuwo.cn/5dcbdd24bf7e6d061bd77ca2ad903928/5ec51f4a/resource/n1/10/6/1480916413.mp3
                     imageUrl: './res/images/songs/c.jpg'
-                },
-                {
-                    id: 2,
-                    title: '认真的雪',
-                    singer: '薛之谦',
-                    songUrl: './res/songs/song.mp3',
-                    imageUrl: './res/images/songs/renzhendexue.jpg'
-                },
-                {
-                    id: 3,
-                    title: '演员',
-                    singer: '薛之谦',
-                    songUrl: './res/songs/song.mp3',
-                    imageUrl: './res/images/songs/yanyuan.jpg'
                 }
                 ]
             }
