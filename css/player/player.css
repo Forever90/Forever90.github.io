@@ -190,7 +190,7 @@
 
 .control__volume--progress {
     float: left;
-    width: 100px;
+    width: 300%;
     position: relative;
     top: 8px;
 }
