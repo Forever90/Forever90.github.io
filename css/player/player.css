@@ -1,6 +1,6 @@
 /* 播放器大小 */
 .music-player {
-    width: 550px;
+    width: 25%;
 }
 
 /* 播放器位置 */
@@ -79,8 +79,8 @@
 /* 播放器唱片效果 */
 .music-player__disc {
     float: left;
-    width: 130px;
-    height: 130px;
+    width: 25%;
+    height: 70%;
     background: url(../../res/images/cd.png) no-repeat center;
     background-size: 100%;
     position: relative;
@@ -88,7 +88,7 @@
 
 /* 唱片指针 */
 .music-player__pointer {
-    width: 25px;
+    width: 20%;
     position: absolute;
     right: -10px;
     top: 0;
@@ -112,8 +112,8 @@
 
 /* 唱片歌曲图片 */
 .music-player__image {
-    width: 80px;
-    height: 80px;
+    width: 80%;
+    height: 82%;
     border-radius: 50%;
     position: absolute;
     overflow: hidden;
@@ -128,8 +128,8 @@
 /* 播放器控件 */
 
 .music-player__controls {
-    width: 330px;
-    height: 130px;
+    width: 70%;
+    height: 82%;
     float: right;
 }
 
