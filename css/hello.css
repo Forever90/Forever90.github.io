@@ -2,13 +2,14 @@
 
 .admin{
     /*background:#fff;*/
-    position: relative;
+    position: absolute;
     line-height: 0;
     height: 65px;
+    width: 100%;
     /*right:0;*/
     /*bottom:0;*/
-    /*top:0;*/
-    /*left:0;*/
+    top:0;
+    left:0;
 }
 /*
 轮播图
