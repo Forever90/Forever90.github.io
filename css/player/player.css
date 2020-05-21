@@ -51,7 +51,7 @@
 
 /* 播放器主体 */
 .music-player__main {
-    height: 180px;
+    height: 18%;
     padding: 25px;
     -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
@@ -80,7 +80,8 @@
 .music-player__disc {
     float: left;
     width: 25%;
-    height: 70%;
+    height: 0;
+    padding-bottom: 25%;
     background: url(../../res/images/cd.png) no-repeat center;
     background-size: 100%;
     position: relative;
@@ -90,8 +91,8 @@
 .music-player__pointer {
     width: 20%;
     position: absolute;
-    right: -10px;
-    top: 0;
+    right: -8%;
+    top: 3%;
     -webkit-transform-origin: right top;
     -ms-transform-origin: right top;
     transform-origin: right top;
@@ -113,7 +114,8 @@
 /* 唱片歌曲图片 */
 .music-player__image {
     width: 80%;
-    height: 82%;
+    height: 0;
+    padding-bottom: 80%;
     border-radius: 50%;
     position: absolute;
     overflow: hidden;
@@ -181,7 +183,7 @@
 }
 
 .player-control__volume {
-    float: right;
+    float: left;
     overflow: hidden;
 }
 
