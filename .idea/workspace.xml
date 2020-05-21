@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6c90d594-616d-4ed0-8a25-96564eb27a4d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/player/player.css" afterPath="$PROJECT_DIR$/css/player/player.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/music.html" afterPath="$PROJECT_DIR$/music.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="music.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="music.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/music.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="60" column="113" lean-forward="true" selection-start-line="60" selection-start-column="113" selection-end-line="60" selection-end-column="113" />
+            <state relative-caret-position="575">
+              <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -92,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/player/player.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="192" column="14" lean-forward="false" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="14" />
+            <state relative-caret-position="309">
+              <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -182,8 +183,8 @@
         <option value="$PROJECT_DIR$/js/player/player.js" />
         <option value="$PROJECT_DIR$/css/player/iconfont.css" />
         <option value="$PROJECT_DIR$/css/player/reset.css" />
-        <option value="$PROJECT_DIR$/music.html" />
         <option value="$PROJECT_DIR$/css/player/player.css" />
+        <option value="$PROJECT_DIR$/music.html" />
       </list>
     </option>
   </component>
@@ -773,12 +774,12 @@
       <workItem from="1588925466857" duration="23929000" />
       <workItem from="1589359868646" duration="9263000" />
       <workItem from="1589455191589" duration="81171000" />
-      <workItem from="1590044883440" duration="10385000" />
+      <workItem from="1590044883440" duration="10768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124748000" />
+    <option name="totallyTimeSpent" value="125131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1088,10 +1089,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/player/player.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/music.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="60" column="113" lean-forward="true" selection-start-line="60" selection-start-column="113" selection-end-line="60" selection-end-column="113" />
+        <state relative-caret-position="575">
+          <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1099,14 +1108,6 @@
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/player/player.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="192" column="14" lean-forward="false" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
