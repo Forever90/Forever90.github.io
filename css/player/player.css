@@ -185,12 +185,14 @@
 
 .player-control__volume {
     float: left;
+    width: 60%;
+    padding-bottom: 10px;
     overflow: hidden;
 }
 
 .control__volume--progress {
     float: left;
-    width: 61px;
+    width: 90%;
     position: relative;
     top: 8px;
 }
