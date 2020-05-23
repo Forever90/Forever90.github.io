@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!--页面样式-->
     <link href="css/music.css" rel="stylesheet">
     <script type="text/javascript" src="js/lib/jquery.min.js"></script>
     <script src="js/index.js"></script>
-
+    <script src="js/player/baseScripts.js"></script>
+    <!--播放器-->
     <link rel="stylesheet" href="css/player/iconfont.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/player/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/player/player.css" />
@@ -21,12 +22,33 @@
         <iframe src="base.html" width="100%" height="100%" frameborder="no" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
     </div>
     <div id="search" style="margin-top:5px;">
-        <div id="searchPos" style="margin-left:10px;">
-            <label style="color: white">搜索</label>
-            <input type="text" name="name" size="22" style="padding:10px; border: 1px solid black; border-radius: 2px">
-            <input type="submit" style="background-color: transparent; width: 80px;height: 34px;border: solid black 1px">
+        <form id="form1" onsubmit="return false" action="#" method="get">
+            <div id="searchPos" style="margin-left:10px;">
+                <label style="color: white">搜索</label>
+                <input type="text" size="22" placeholder="请输入要查询的歌曲" name="musicName" style="padding:10px; border: 1px solid black; border-radius: 2px">
+                <button type="button" onclick="searchSongs()" style="background-color: transparent; width: 80px;height: 34px;border: solid black 1px">搜索</button>
+            </div>
+        </form>
+    </div>
+
+    <!--歌曲目录-->
+    <div class="musicMain">
+            <ul class="songlist__header">
+                <!--<li class="songlist__edit songlist__edit&#45;&#45;check sprite">-->
+                <!--<input type="checkbox" class="songlist__checkbox js_check_all">-->
+                <!--</li>-->
+                <li class="songlist__header_name">歌曲</li>
+                <li class="songlist__header_author">歌手</li>
+                <li class="songlist__header_album">专辑</li>
+                <li class="songlist__header_time">时长</li>
+            </ul>
+            <ul class="songlist__list">
+
+            </ul>
         </div>
     </div>
+
+
     <!-- 播放器 -->
     <div class="music-player">
         <!-- audio标签 -->

@@ -43,8 +43,8 @@
             success: function (result) {
                 console.log(result);//在浏览器中打印服务端返回的数据(调试用)
                 if ( result.abslist.length>0 ) {
-                    refreshSonglist(result);
-                };
+                    //refreshSonglist(result.data);
+                }
             },
             error : function() {
                 alert("异常！");
@@ -67,7 +67,7 @@
             type: "GET",
             dataType: "text",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://192.168.7.90:8888/musicPlay" ,
+            url: "http://118.24.100.13:8888/musicPlay" ,
             data: {mid:mid},
             success: function (url) {
                 console.log(url);//在浏览器中打印服务端返回的数据(调试用)
@@ -85,11 +85,11 @@
     function refreshSonglist(data){
         $('.result').css('opacity',1);
         $('.songlist__list').empty();
-        for(var i in data.abslist){
-            var music = data.abslist[i];
+        for(var i in data.list){
+            var music = data.list[i];
             //歌曲名称 播放按钮
             var li_song = document.createElement("li");
-            li_song.setAttribute('mid',music.MUSICRID);
+            li_song.setAttribute('mid',music.musicrid);
             li_song.setAttribute('ix',i);
             songList.appendChild(li_song);
 
@@ -104,7 +104,7 @@
 
             var span_name = document.createElement('span');
             span_name.className = 'songlist__songname_txt';
-            span_name.innerHTML = music.NAME;
+            span_name.innerHTML = music.name;
             div_song_name.appendChild(span_name);
             var div_mod_menu = document.createElement('div');
             div_mod_menu.className = 'mod_list_menu';
@@ -121,7 +121,7 @@
             a_mod_menu_item_play.appendChild(li_play);
             li_play.musicInfo = music;
             li_play.onclick = function(){
-                playMusic(this.musicInfo.MUSICRID);
+                playMusic(this.musicInfo.musicrid);
             };
             var span_play = document.createElement('span');
             span_play.class = 'icon_txt';
@@ -145,19 +145,19 @@
             //歌曲歌手
             var div_song_author = document.createElement('div');
             div_song_author.className = 'songlist__artist';
-            div_song_author.innerHTML = music.ARTIST;
+            div_song_author.innerHTML = music.artist;
             div_song_item.appendChild(div_song_author);
 
             //歌曲专辑
             var div_song_album = document.createElement('div');
             div_song_album.className = 'songlist__album';
-            div_song_album.innerHTML = music.ALBUM;
+            div_song_album.innerHTML = music.album;
             div_song_item.appendChild(div_song_album);
 
             //歌曲时长
             var div_song_time = document.createElement('div');
             div_song_time.className = 'songlist__time';
-            div_song_time.innerHTML = music.DURATION;
+            div_song_time.innerHTML = music.songTimeMinutes;
             div_song_item.appendChild(div_song_time);
         }
     }

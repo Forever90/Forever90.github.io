@@ -1,6 +1,10 @@
 //创建一个音乐播放器的类 单例模式
 (function(){
     window.onload = function(){
+
+
+        var musics = [];
+        var myAlbum = [];
         class Player {
             constructor() { //类的构造函数
                 //如果类已经有实例了，就返回这个实例
@@ -22,21 +26,31 @@
         }
 
         //歌曲信息
-        class Musics {
-            //歌曲
+        // class Musics {
+        //     //歌曲
+        //     constructor() {
+        //         this.songs = [{
+        //             id: 1,
+        //             title: 'Driving Home for Christmas',
+        //             singer: 'Campsite Dream',
+        //             songUrl: './res/songs/1480916413.mp3',//http://other.player.rh01.sycdn.kuwo.cn/5dcbdd24bf7e6d061bd77ca2ad903928/5ec51f4a/resource/n1/10/6/1480916413.mp3
+        //             imageUrl: './res/images/songs/c.jpg'
+        //         }
+        //         ]
+        //     }
+        //     //根据索引获取歌曲的方法
+        //     getSongByNum(index) {
+        //         return this.songs[index];
+        //     }
+        // }
+
+        class songsInfo {
             constructor() {
-                this.songs = [{
-                    id: 1,
-                    title: 'Driving Home for Christmas',
-                    singer: 'Campsite Dream',
-                    songUrl: './res/songs/1480916413.mp3',//http://other.player.rh01.sycdn.kuwo.cn/5dcbdd24bf7e6d061bd77ca2ad903928/5ec51f4a/resource/n1/10/6/1480916413.mp3
-                    imageUrl: './res/images/songs/c.jpg'
-                }
-                ]
-            }
-            //根据索引获取歌曲的方法
-            getSongByNum(index) {
-                return this.songs[index];
+                this.id = 0;
+                this.title= "";
+                this.singer= "";
+                this.songUrl= "";//http://other.player.rh01.sycdn.kuwo.cn/5dcbdd24bf7e6d061bd77ca2ad903928/5ec51f4a/resource/n1/10/6/1480916413.mp3
+                this.imageUrl= "";
             }
         }
 
@@ -49,7 +63,7 @@
 
                 //工具
                 this.util = new Util();
-                this.musics = new Musics(); //歌曲信息
+                this.musics = musics;//new Musics(); //歌曲信息
                 this.song_index = 0; // 当前播放的歌曲索引
                 this.loop_mode = 0; // 1 2
                 // 下方歌曲列表容器
@@ -88,7 +102,7 @@
             //生成播放列表
             renderSongList() {
                 let _str = '';
-                this.musics.songs.forEach((song, i) => {
+                this.musics.forEach((song, i) => {
                     _str += `<li class="music__list__item">${song.title}</li>`
                 });
                 this.song_list.html(_str);
@@ -96,18 +110,19 @@
 
             //根据歌曲去渲染视图
             renderSongStyle() {
-                let {
-                    title,
-                    singer,
-                    songUrl,
-                    imageUrl
-                } = this.musics.getSongByNum(this.song_index);
-                this.audio.src = songUrl;
-                this.render_doms.title.html(title);
-                this.render_doms.singer.html(singer);
-                this.render_doms.image.prop('src', imageUrl);
-                this.render_doms.blur.css('background-image', 'url("' + imageUrl + '")');
-
+                if(this.musics.length>0){
+                    let {
+                        title,
+                        singer,
+                        songUrl,
+                        imageUrl
+                    } = this.musics[this.song_index];
+                    this.audio.src = songUrl;
+                    this.render_doms.title.html(title);
+                    this.render_doms.singer.html(singer);
+                    this.render_doms.image.prop('src', imageUrl);
+                    this.render_doms.blur.css('background-image', 'url("' + imageUrl + '")');
+                }
                 //切换列表中的item的类名 play
                 //this.song_list.find('.music__list__item').eq(this.song_index).addClass('play').siblings().removeClass('play');
             }
