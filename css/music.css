@@ -47,6 +47,7 @@
     width: 75%;
     height: 87%;
     box-shadow: 0 0 20px 8px rgb(88, 88, 88);
+    overflow: hidden;
 }
 
 .songlist__header {
@@ -79,7 +80,26 @@
     line-height: 60px;
 }
 
-.songlist__list li div{
+.songlist__list li .songName,.artist,.album,.duration{
     width: 25%;
     float: left;
+    overflow: hidden;
+}
+
+span {
+    width:100%;
+}
+
+.mod_list_menu{
+    display: none;
+    float: right;
+    padding-right: 10%;
+}
+
+.songInfo:hover .mod_list_menu{
+    display:block;
+}
+
+.list_menu__icon_play::before {
+    content: "\e66a";
 }
