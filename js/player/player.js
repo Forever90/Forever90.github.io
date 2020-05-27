@@ -206,7 +206,7 @@ class PlayerCreator {
 
     //播放新歌曲
     PlayNewSong(){
-        this.song_index += 1;
+        this.song_index = musics.length-1;
         this.renderSongStyle();
         this.audio.play();
         let _o_i = this.$play.$el.find('i');
