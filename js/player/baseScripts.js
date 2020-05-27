@@ -7,12 +7,14 @@
 // };
 
 (function(){
+    let musicPlayer = null;
+
     searchSongs = function(){
         $.ajax({
             type: "GET",
             dataType: "json",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://192.168.7.90:8888/musicSearch" ,
+            url: "http://118.24.100.13:8888/musicSearch" ,
             data: $('#form1').serialize(),
             success: function (result) {
                 console.log(result);//在浏览器中打印服务端返回的数据(调试用)
@@ -36,24 +38,43 @@
 //            xhr.send(form.serialize());
     };
 
-    function playMusic(mid){
+    function playMusic(musicInfo){
         $.ajax({
             type: "GET",
             dataType: "text",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://192.168.7.90:8888/musicPlay" ,
-            data: {mid:mid},
+            url: "http://118.24.100.13:8888/musicPlay" ,
+            data: {mid:musicInfo.MUSICRID},
             success: function (url) {
                 console.log(url);//在浏览器中打印服务端返回的数据(调试用)
                 // if ( result.code == 200 ) {
                 //     //refreshSonglist(result.data);
                 // };
-                Player().getInstance().handlePlayAndPause();
+                //import('player.js').Player().getInstance();
+                //Player().getInstance().handlePlayAndPause()s;
+
+                let song = new songsInfo(musicInfo.MUSICRID,musicInfo.NAME,musicInfo.ARTIST,url,'./res/images/songs/yanyuan.jpg');
+                if(!duplicateRemoval(song)){
+                    //生成播放器实例
+                    musicPlayer = new Player();
+                    musicPlayer.PlayNewSong();
+                }
+
             },
             error : function() {
                 alert("异常！");
             }
         });
+    }
+
+    function duplicateRemoval(song){
+        for(var i in musics){
+            if(musics[i].id === song.id){
+                return true;
+            }
+        }
+        musics.push(song);
+        return false;
     }
 
     function refreshSonglist(data){
@@ -97,7 +118,7 @@
             div_mod_menu.appendChild(i_play);
             i_play.musicInfo = music;
             i_play.onclick = function(){
-                playMusic(this.musicInfo.MUSICRID);
+                playMusic(this.musicInfo);
             };
             // var span_play = document.createElement('span');
             // span_play.class = 'icon_txt';
@@ -147,6 +168,16 @@
         }
     }
 
+    myFunction = function (){
+        if(musicPlayer){
+            //播放条尺寸
+            musicPlayer.progress.refreshDomStyle();
+            musicPlayer.progress.setValue(musicPlayer.audio.currentTime);
+            //音量条尺寸
+            musicPlayer.volumProgress.refreshDomStyle();
+            musicPlayer.volumProgress.setValue(musicPlayer.audio.volume);
+        }
+    }
 
 })();
 
