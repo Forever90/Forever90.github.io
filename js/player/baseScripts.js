@@ -57,6 +57,7 @@
                 if(!duplicateRemoval(song)){
                     //生成播放器实例
                     musicPlayer = new Player();
+                    musicPlayer.renderSongList();
                     musicPlayer.PlayNewSong();
                 }
 

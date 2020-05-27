@@ -16,20 +16,26 @@
 .music-player__list {
     width: 100%;
     padding: 10px;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+}
+.music__list_content{
+    max-height: 190px;
 }
 
 .music__list__item {
     padding-left: 25px;
     color: #ccc;
+    height:19px;
     position: relative;
     margin-bottom: 10px;
     font-size: 14px;
     cursor: pointer;
+    overflow-y:hidden;
 }
 
 .music__list__item:last-of-type {

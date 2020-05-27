@@ -103,7 +103,7 @@ class PlayerCreator {
         this.musics.forEach((song, i) => {
             _str += `<li class="music__list__item">${song.title}</li>`
         });
-        //this.song_list.html(_str);
+        this.song_list.html(_str);
     }
 
     //根据歌曲去渲染视图
@@ -122,7 +122,7 @@ class PlayerCreator {
             this.render_doms.blur.css('background-image', 'url("' + imageUrl + '")');
         }
         //切换列表中的item的类名 play
-        //this.song_list.find('.music__list__item').eq(this.song_index).addClass('play').siblings().removeClass('play');
+        this.song_list.find('.music__list__item').eq(this.song_index).addClass('play').siblings().removeClass('play');
     }
     //绑定各种事件
     bindEventListener() {
