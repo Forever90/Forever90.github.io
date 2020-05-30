@@ -19,40 +19,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>play</find>
-      <find>base</find>
-      <find>this.musics</find>
-      <find>changeSong</find>
-      <find>changeSongIndex</find>
-      <find>this.song_index</find>
-      <find>back</find>
-      <find>$back</find>
-      <find>progress</find>
-      <find>this.progress</find>
-      <find>changeDOMStyle</find>
-      <find>max</find>
-      <find>this.width</find>
-      <find>songlist__list</find>
-      <find>songlist</find>
-      <find>87</find>
-      <find>setValue</find>
-      <find>url</find>
-      <find>flag</find>
-      <find>songInfo</find>
-      <find>&lt;span</find>
-      <find>this.song_list</find>
-      <find>renderSongStyle</find>
-      <find>music__list_content</find>
-      <find>i</find>
-      <find>iconfong</find>
-      <find>iconfon</find>
-      <find>iconfont</find>
-      <find>music__list__item</find>
-      <find>music-player__list</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -289,5 +255,15 @@
       <workItem from="1590044883440" duration="70000000" />
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590822912876">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590822912876" />
+    <state x="636" y="258" width="647" height="524" key="find.popup" timestamp="1590827970114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="258" width="647" height="524" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590827970114" />
   </component>
 </project>

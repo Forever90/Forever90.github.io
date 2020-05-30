@@ -20,6 +20,8 @@
                 console.log(result);//在浏览器中打印服务端返回的数据(调试用)
                 if ( result.abslist.length>0 ) {
                     refreshSonglist(result);
+                    //$('musicMain').animate({ marginRight: 0 });
+                    $(".musicMain").css({"margin-right":"0.5%","transition":"margin-right 1.0s ease-in-out"})
                 }
             },
             error : function() {
