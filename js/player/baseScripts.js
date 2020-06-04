@@ -9,18 +9,22 @@
 (function(){
     let musicPlayer = null;
 
-    searchSongs = function(){
+    searchSongs = function(pageNum){
+        var data = {
+            searchTitle:$(".musicName").val(),
+            pageNum:pageNum || 0
+        }
         $.ajax({
             type: "GET",
             dataType: "json",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://118.24.100.13:8888/musicSearch" ,
-            data: $('#form1').serialize(),
+            url: "http://192.168.7.90:8888/musicSearch" ,
+            data: data,//$('#form1').serialize(),
             success: function (result) {
                 console.log(result);//在浏览器中打印服务端返回的数据(调试用)
                 if ( result.abslist.length>0 ) {
                     refreshSonglist(result);
-                    //$('musicMain').animate({ marginRight: 0 });
+                    setPageContainer(result,data.pageNum);
                     $(".musicMain").css({"margin-right":"0.5%","transition":"margin-right 1.0s ease-in-out"})
                 }
             },
@@ -45,7 +49,7 @@
             type: "GET",
             dataType: "text",//服务器返回的数据类型
             contentType: "application/x-www-form-urlencoded",//post请求的信息格式
-            url: "http://118.24.100.13:8888/musicPlay" ,
+            url: "http://192.168.7.90:8888/musicPlay" ,
             data: {mid:musicInfo.MUSICRID},
             success: function (url) {
                 console.log(url);//在浏览器中打印服务端返回的数据(调试用)
@@ -169,6 +173,84 @@
             span_time.innerHTML = music.DURATION || "--";
             div_song_time.appendChild(span_time);
         }
+    }
+
+    function setPageContainer(result,index){
+        window.page_list = document.querySelector('.page_list');
+        $('.page_list').empty();
+        let totalPageNum = parseInt(result.TOTAL/30);
+        //前一页
+        let pre_page_li = createHtmlElement("li","page_pre",page_list);
+        let pre_page_a = createHtmlElement("a","",pre_page_li);
+        pre_page_a.innerHTML = "<<";
+        pre_page_li.onclick = function(){
+            if(index === 0){
+                alert("已到首页");
+                return;
+            }
+            searchSongs(index - 1);
+        };
+        if(totalPageNum>10){
+            if(index + 5 < totalPageNum - 1 - 4){
+                for(let i = index;i<index + 4;i++){
+                    let num_page_li = createHtmlElement("li","page_"+String(i),page_list);
+                    let num_page_a = createHtmlElement("a","",num_page_li);
+                    num_page_a.innerHTML = String(i+1);
+                    num_page_li.onclick = function(){
+                        searchSongs(num_page_a.innerHTML - 1);
+                    }
+                }
+                let page_li = createHtmlElement("li","",page_list);
+                let page_a = createHtmlElement("a","",page_li);
+                page_a.innerHTML = "...";
+                //最后4页
+                for(let i=totalPageNum-4;i<totalPageNum;i++){
+                    let num_page_li = createHtmlElement("li","page_"+String(i),page_list);
+                    let num_page_a = createHtmlElement("a","",num_page_li);
+                    num_page_a.innerHTML = String(i+1);
+                    num_page_li.onclick = function(){
+                        searchSongs(num_page_a.innerHTML - 1);
+                    }
+                }
+            }else{
+                //最后10页
+                for(let i = totalPageNum-10;i<totalPageNum;i++){
+                    let num_page_li = createHtmlElement("li","page_"+String(i),page_list);
+                    let num_page_a = createHtmlElement("a","",num_page_li);
+                    num_page_a.innerHTML = String(i+1);
+                    num_page_li.onclick = function(){
+                        searchSongs(num_page_a.innerHTML - 1);
+                    }
+                }
+            }
+        }else{
+            for(let i = 0;i<totalPageNum;i++){
+                let num_page_li = createHtmlElement("li","page_"+String(i),page_list);
+                let num_page_a = createHtmlElement("a","",num_page_li);
+                num_page_a.innerHTML = String(i+1);
+                num_page_li.onclick = function(){
+                    searchSongs(num_page_a.innerHTML - 1);
+                }
+            }
+        }
+        let next_page_li = createHtmlElement("li","page_next",page_list);
+        let next_page_a = createHtmlElement("a","",next_page_li);
+        next_page_a.innerHTML = ">>";
+        next_page_li.onclick = function(){
+            if(index >= totalPageNum-1){
+                alert("已到尾页");
+                return;
+            }
+            searchSongs(index + 1);
+        };
+        $(".page_" + index).addClass("selected").siblings().removeClass("selected");
+    }
+
+    function createHtmlElement(nodeName,className,parentNode) {
+        let node = document.createElement(nodeName);
+        node.className = className;
+        parentNode.appendChild(node);
+        return node;
     }
 
     myFunction = function (){

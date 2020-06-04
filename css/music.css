@@ -118,3 +118,45 @@ span {
 .list_menu__icon_play::before {
     content: "\e66a";
 }
+/*
+分页
+*/
+.pageContainer{
+    position: fixed;
+    bottom: 1.5%;
+    width: inherit;
+}
+.pageContainer ul{
+    text-align: center;
+    width: 100%;
+    /*height: 42px;*/
+    margin: 0 auto;
+    list-style:none;
+    border: 1px solid #dfdfdf;
+    background-color:transparent;
+}
+.pageContainer li{
+    display: inline-block;
+    list-style: none;
+    border: 1px solid white;
+    color: white;
+}
+.pageContainer li a{
+    display: inline;
+    position: relative;
+    padding: 0 10px;
+    background-color: transparent;
+    /*border: 5px solid white;*/
+
+    font:12px '微软雅黑';
+    text-decoration: none;
+}
+.pageContainer li:hover{
+    border: 1px solid yellow;
+}
+
+.selected{
+    border: 1px solid black !important;
+    background-color: white !important;
+    color: black !important;
+}

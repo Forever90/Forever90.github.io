@@ -25,19 +25,22 @@
         <form id="form1" onsubmit="return false" action="#" method="get">
             <div id="searchPos" style="margin-left:10px;">
                 <label style="color: white">搜索</label>
-                <input type="text" size="22" placeholder="请输入要查询的歌曲" name="musicName" style="padding:10px; border: 1px solid black; border-radius: 2px">
+                <input type="text" class="musicName" size="22" placeholder="请输入要查询的歌曲" name="musicName" style="padding:10px; border: 1px solid black; border-radius: 2px">
                 <button type="button" onclick="searchSongs()" style="background-color: transparent; width: 80px;height: 34px;border: solid black 1px">搜索</button>
             </div>
         </form>
     </div>
     <!--歌曲目录-->
     <div class="musicMain">
+        <div>
             <ul class="songlist__header">
                 <li class="songlist__header_name">歌曲</li>
                 <li class="songlist__header_author">歌手</li>
                 <li class="songlist__header_album">专辑</li>
                 <li class="songlist__header_time">时长</li>
             </ul>
+        </div>
+        <div>
             <ul class="songlist__list">
                 <!--<li class="songInfo">
                     <div class="songName">
@@ -58,8 +61,22 @@
                 </li>-->
             </ul>
         </div>
+        <div class="pageContainer">
+            <ul class = "page_list">
+                <!--<li><a href="#"><<</a></li>-->
+                <!--<li><a href="">1</a></li>-->
+                <!--<li><a href="">2</a></li>-->
+                <!--<li><a href="">3</a></li>-->
+                <!--<li><a href="">4</a></li>-->
+                <!--<li>…</li>-->
+                <!--<li><a href="">17</a></li>-->
+                <!--<li><a href="">18</a></li>-->
+                <!--<li><a href="">19</a></li>-->
+                <!--<li><a href="">20</a></li>-->
+                <!--<li><a href="">>></a></li>-->
+            </ul>
+        </div>
     </div>
-
     <!-- 播放器 -->
     <div class="music-player">
         <!--&lt;!&ndash; 歌曲列表 &ndash;&gt;-->
