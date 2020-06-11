@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6c90d594-616d-4ed0-8a25-96564eb27a4d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/music.css" afterPath="$PROJECT_DIR$/css/music.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/player/player.js" afterPath="$PROJECT_DIR$/js/player/player.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/player/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="143" column="28" lean-forward="true" selection-start-line="143" selection-start-column="28" selection-end-line="143" selection-end-column="28" />
+            <state relative-caret-position="352">
+              <caret line="133" column="37" lean-forward="true" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
               <folding>
                 <marker date="1591844809363" expanded="true" signature="2915:2941" ph="..." />
               </folding>
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="music.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="music.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/music.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="503">
+              <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -170,8 +169,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/music.html" />
         <option value="$PROJECT_DIR$/js/player/baseScripts.js" />
-        <option value="$PROJECT_DIR$/css/music.css" />
         <option value="$PROJECT_DIR$/js/player/player.js" />
+        <option value="$PROJECT_DIR$/css/music.css" />
       </list>
     </option>
   </component>
@@ -770,12 +769,12 @@
       <workItem from="1589455191589" duration="81171000" />
       <workItem from="1590044883440" duration="70000000" />
       <workItem from="1591182597949" duration="16817000" />
-      <workItem from="1591275594598" duration="27364000" />
+      <workItem from="1591275594598" duration="27565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235001000" />
+    <option name="totallyTimeSpent" value="235202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1181,14 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/music.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/player/baseScripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1199,11 +1190,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/player/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="143" column="28" lean-forward="true" selection-start-line="143" selection-start-column="28" selection-end-line="143" selection-end-column="28" />
+        <state relative-caret-position="352">
+          <caret line="133" column="37" lean-forward="true" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
           <folding>
             <marker date="1591844809363" expanded="true" signature="2915:2941" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/music.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
