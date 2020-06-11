@@ -143,6 +143,7 @@ class PlayerCreator {
         }
         //切换列表中的item的类名 play
         this.song_list.find('.music__list__item').eq(this.song_index).addClass('play').siblings().removeClass('play');
+
     }
     //绑定各种事件
     bindEventListener() {

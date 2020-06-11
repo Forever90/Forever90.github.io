@@ -43,10 +43,10 @@
 .musicMain{
     margin:0 auto;
     margin-top: 5px;
-    margin-right: -74.5%;
+    margin-right: -75%;
     margin-bottom: 10px;
     width: 75%;
-    height: 700px;
+    height: 87%;
     box-shadow: 0 0 20px 8px rgb(88, 88, 88);
     overflow-y:auto;
 }
