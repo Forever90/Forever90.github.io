@@ -6,7 +6,8 @@
 /* 播放器位置 */
 .music-player {
     position: fixed;
-    top: 110px;
+    /*top: 110px;*/
+    bottom: 10px;
     left: 0;
     /*margin: 0 auto;*/
 }
