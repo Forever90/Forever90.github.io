@@ -6,7 +6,7 @@
 /* 播放器位置 */
 .music-player {
     position: fixed;
-    bottom: 10px;
+    top: 110px;
     left: 0;
     /*margin: 0 auto;*/
 }
@@ -52,6 +52,11 @@
     position: absolute;
     left: 0px;
     top: 4px;
+}
+.delete{
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 

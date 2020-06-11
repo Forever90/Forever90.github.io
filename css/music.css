@@ -46,7 +46,7 @@
     margin-right: -74.5%;
     margin-bottom: 10px;
     width: 75%;
-    height: 87%;
+    height: 700px;
     box-shadow: 0 0 20px 8px rgb(88, 88, 88);
     overflow-y:auto;
 }
@@ -123,7 +123,7 @@ span {
 */
 .pageContainer{
     position: fixed;
-    bottom: 1.5%;
+    bottom: 10px;
     width: inherit;
 }
 .pageContainer ul{

@@ -101,9 +101,25 @@ class PlayerCreator {
     renderSongList() {
         let _str = '';
         this.musics.forEach((song, i) => {
-            _str += `<li class="music__list__item">${song.title}</li>`
+            _str += `<li class="music__list__item"><div style="width:80%;overflow: hidden">${song.title}</div><a class="delete">×</a></li>`
         });
         this.song_list.html(_str);
+        this.song_list.off('click',".delete");
+        this.song_list.on('click',".delete",function(e){
+            e.stopPropagation();
+            let index = $(e.target.parentNode).index();
+            this.musics.splice(index,1);
+            this.renderSongList();
+            if(this.musics.length > 0){
+                if(this.song_index === index){
+                    this.changeSong(index === 0 ? 0 : index-1);
+                }else{
+                    this.changeSong(this.song_index === 0 ? 0 : this.song_index-1);
+                }
+            }else{
+                this.renderSongStyle();
+            }
+        }.bind(this));
     }
 
     //根据歌曲去渲染视图
@@ -120,6 +136,10 @@ class PlayerCreator {
             this.render_doms.singer.html(singer);
             this.render_doms.image.prop('src', imageUrl);
             this.render_doms.blur.css('background-image', 'url("' + imageUrl + '")');
+        }else{
+            this.audio.src = "";
+            this.render_doms.title.html('...');
+            this.render_doms.singer.html('...');
         }
         //切换列表中的item的类名 play
         this.song_list.find('.music__list__item').eq(this.song_index).addClass('play').siblings().removeClass('play');
@@ -148,7 +168,7 @@ class PlayerCreator {
         });
         //列表点击
         this.song_list.on('click', 'li', (e) => {
-            let index = $(e.target).index();
+            let index = $(e.target.parentNode).index();
             this.changeSong(index);
         });
 
