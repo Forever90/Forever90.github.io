@@ -43,19 +43,20 @@ class Player {
 // }
 
 class songsInfo {
-    constructor(id,title,singer,songUrl,imageUrl) {
+    constructor(id,title,singer,songUrl,imageUrl,lyrics) {
         this.id = id;
         this.title= title;
         this.singer= singer;
         this.songUrl= songUrl;//http://other.player.rh01.sycdn.kuwo.cn/5dcbdd24bf7e6d061bd77ca2ad903928/5ec51f4a/resource/n1/10/6/1480916413.mp3
         this.imageUrl= imageUrl;
+        this.lyrics = lyrics;
     }
 }
 
 //真正的构建播放器的类
 class PlayerCreator {
     constructor() {
-        this.audio = document.querySelector('.music-player__audio') // Audio dom元素, 因为很多api都是需要原生audio调用的，所以不用jq获取
+        this.audio = document.querySelector('.music-player__audio'); // Audio dom元素, 因为很多api都是需要原生audio调用的，所以不用jq获取
         // this.audio.muted = true; // 控制静音
         this.audio.volume = 0.8;
 
@@ -66,6 +67,12 @@ class PlayerCreator {
         this.loop_mode = 0; // 1 2
         // 下方歌曲列表容器
         this.song_list = $('.music__list_content');
+        //歌词
+        this.lyricsBtn = $('.lyric');
+        this.lyricsComp = new LyricsComp(".music__lyric",{
+            content:$('.music__lyric_content'),
+            isOpenLyrics:false,
+        });
 
         this.render_doms = { //切换歌曲时需要渲染的dom组
             title: $('.music__info--title'),
@@ -118,6 +125,7 @@ class PlayerCreator {
                 }
             }else{
                 this.renderSongStyle();
+                this.lyricsComp.close();
             }
         }.bind(this));
     }
@@ -173,6 +181,13 @@ class PlayerCreator {
             this.changeSong(index);
         });
 
+        this.lyricsBtn.on('click',function(e){
+            if(!this.lyricsComp.isOpen()){
+                this.lyricsComp.open(this.musics[this.song_index]);
+            }else{
+                this.lyricsComp.close();
+            }
+        }.bind(this));
         //音量控制 audio标签音量 vlouem 属性控制0-1
 
         this.volumProgress = new Progress('.control__volume--progress', {
@@ -212,6 +227,9 @@ class PlayerCreator {
             if(this.progress){
                 this.progress.setValue(this.audio.currentTime);
             }
+            if(this.lyricsComp && this.lyricsComp.isOpen()){
+                this.lyricsComp.renderLyrics(this.audio.currentTime);
+            }
             //调整当前时长
             this.render_time.now.html(this.util.formatTime(this.audio.currentTime));
         };
@@ -233,7 +251,8 @@ class PlayerCreator {
         let _o_i = this.$play.$el.find('i');
         _o_i.removeClass('icon-play').addClass('icon-pause');
         this.disc.image.addClass('play');
-        this.disc.pointer.addClass('play')
+        this.disc.pointer.addClass('play');
+        this.lyricsComp.changeLyrics(this.musics[this.song_index]);
     }
 
     //播放暂停控制
@@ -310,6 +329,9 @@ class PlayerCreator {
         this.renderSongStyle();
         //如果切歌前是在播放，就继续播放
         if (!_is_pause) this.audio.play();
+        if(this.lyricsComp.isOpen()){
+            this.lyricsComp.changeLyrics(this.musics[this.song_index]);
+        }
     }
     //禁音
     banNotes() {
@@ -414,6 +436,52 @@ class Btns {
             //使用值的时候保证键值对在对象中是存在的
             if (handlers.hasOwnProperty(event)) {
                 this.$el.on(event, handlers[event]);
+            }
+        }
+    }
+}
+
+//歌词控件
+class LyricsComp {
+    constructor(selector,options){
+        this.$el = $(selector); //元素
+        $.extend(this, options);
+        this.init();
+    }
+    init(){//初始化参数
+        //this.isOpen = false;
+        this.LyricsArr = [];
+    }
+    isOpen(){
+        return this.isOpenLyrics;
+    }
+    open(songInfo){
+        this.$el.css({"height":"100%","left":"100%","transition":"height 1.0s ease-in-out 1.0s,left 1.0s ease-in-out"});
+        this.isOpenLyrics = true;
+        this.changeLyrics(songInfo);
+    }
+    close(){
+        this.$el.css({"left":"0","height":"0","transition":"left 1.0s ease-in-out 1.0s,height 1.0s ease-in-out"});
+        this.isOpenLyrics = false;
+        this.clearLyrics();
+    }
+    changeLyrics(songInfo){
+        this.LyricsArr = songInfo.lyrics;
+        if(this.LyricsArr.length <= 0){
+            this.content.html("暂无歌词");
+        }
+    }
+    clearLyrics(){
+        this.content.html("");
+    }
+    renderLyrics(time){
+        for(let i in this.LyricsArr){
+            if(time >= this.LyricsArr[i].time){
+                if(this.LyricsArr[i+1] && time < this.LyricsArr[i+1].time){
+                    this.content.html(this.LyricsArr[i].lineLyric);
+                }else if(!this.LyricsArr[i+1]){
+                    this.content.html(this.LyricsArr[i].lineLyric);
+                }
             }
         }
     }

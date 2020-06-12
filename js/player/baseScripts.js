@@ -58,15 +58,7 @@
                 // };
                 //import('player.js').Player().getInstance();
                 //Player().getInstance().handlePlayAndPause()s;
-
-                let song = new songsInfo(musicInfo.MUSICRID,musicInfo.NAME,musicInfo.ARTIST,url,'./res/images/songs/yanyuan.jpg');
-                if(!duplicateRemoval(song)){
-                    //生成播放器实例
-                    musicPlayer = new Player();
-                    musicPlayer.renderSongList();
-                    musicPlayer.PlayNewSong();
-                }
-
+                getSongInfo(musicInfo,url);
             },
             error : function() {
                 alert("异常！");
@@ -74,6 +66,29 @@
         });
     }
 
+    function getSongInfo(musicInfo,url){
+        $.ajax({
+            type: "GET",
+            dataType: "json",//服务器返回的数据类型
+            contentType: "application/x-www-form-urlencoded",//post请求的信息格式
+            url: "http://118.24.100.13:8888/songInfos" ,
+            data: {mid:musicInfo.MUSICRID},
+            success: function (info) {
+                console.log(info);//在浏览器中打印服务端返回的数据(调试用)
+                let song = new songsInfo(musicInfo.MUSICRID,musicInfo.NAME,musicInfo.ARTIST,url,info.data.songinfo.pic,info.data.lrclist);
+                if(!duplicateRemoval(song)){
+                    //生成播放器实例
+                    musicPlayer = new Player();
+                    musicPlayer.renderSongList();
+                    musicPlayer.PlayNewSong();
+                }
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
+    }
+    //去掉重复歌单
     function duplicateRemoval(song){
         for(var i in musics){
             if(musics[i].id === song.id){
@@ -83,7 +98,7 @@
         musics.push(song);
         return false;
     }
-
+    //创建歌曲ITEM
     function refreshSonglist(data){
         // $('.result').css('opacity',1);
         window.songList = document.querySelector('.songlist__list');
@@ -174,7 +189,7 @@
             div_song_time.appendChild(span_time);
         }
     }
-
+    //设置页面
     function setPageContainer(result,index){
         window.page_list = document.querySelector('.page_list');
         $('.page_list').empty();
@@ -245,7 +260,7 @@
         };
         $(".page_" + index).addClass("selected").siblings().removeClass("selected");
     }
-
+    //创建元素
     function createHtmlElement(nodeName,className,parentNode) {
         let node = document.createElement(nodeName);
         node.className = className;
@@ -253,7 +268,8 @@
         return node;
     }
 
-    myFunction = function (){
+    //回调
+    myFunctionCB = function (){
         if(musicPlayer){
             //播放条尺寸
             musicPlayer.progress.refreshDomStyle();
@@ -265,4 +281,11 @@
     }
 
 })();
+
+// //打开歌词窗口
+// function openLyrics(){
+//
+//
+//
+// }
 
