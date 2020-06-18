@@ -51,17 +51,6 @@ $(function(){
         // }
     });
 
-    //banner
-    jQuery(".full_banner").slide({
-        titCell:".hd ul",
-        mainCell:".bd ul",
-        effect:"fold",
-        autoPlay:true,
-        autoPage:true,
-        trigger:"click",
-        interTime:3500
-    });
-
 
 
 });
