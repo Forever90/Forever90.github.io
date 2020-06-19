@@ -12,13 +12,25 @@ $(function() {
         trigger: "click",
         interTime: 3500
     });
+    openLogin = function(){
+        let container = jQuery(".container");
+        container.removeClass("layui-anim-fadeout");
+        container.addClass("layui-anim layui-anim-scale");
+        container.show();
+    }
 
-
-
+    closeLogin = function(){
+        let container = jQuery(".container");
+        container.removeClass("layui-anim-scale");
+        container.addClass("layui-anim-fadeout");
+        setTimeout(function(){
+            container.hide();
+        },500);
+    }
 });
 
 layui.use(['form', 'layedit', 'laydate'], function(){
-    var form = layui.form
+    let form = layui.form
         ,layer = layui.layer
         ,layedit = layui.layedit
         ,laydate = layui.laydate;
@@ -62,7 +74,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     form.on('submit(demo1)', function(data){
         layer.alert(JSON.stringify(data.field), {
             title: '最终的提交信息'
-        })
+        });
         return false;
     });
 

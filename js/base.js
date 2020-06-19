@@ -3,8 +3,8 @@
  */
 $(function(){
     //导航菜单
-    var ind = 4;
-    var ul= jQuery(".m");
+    let ind = 4;
+    let ul= jQuery(".m");
     ul.mousedown(function(event){
         if(typeof parent.setHeight !== "undefined"){
             parent.onEventListener(event);
@@ -37,6 +37,13 @@ $(function(){
     //     }
     //
     // });
+
+    let loginBtn = jQuery("#loginBtn");
+    loginBtn.mousedown(function(event){
+        if(typeof parent.setHeight !== "undefined"){
+            parent.onEventListener(event);
+        }
+    });
 
     jQuery(".nav").slide({
         type:"menu",

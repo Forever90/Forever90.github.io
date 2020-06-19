@@ -30,7 +30,7 @@ html,body{
 }
 
 .title .nav .m {
-    float:left;
+    float:right;
     width: 20%;
     text-align: center;
     height: 60px;

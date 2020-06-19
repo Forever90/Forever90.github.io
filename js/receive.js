@@ -18,6 +18,27 @@ function setHeight(value){
     )
 }
 
+openLogin = function(){
+    let container = jQuery(".container");
+    if(container) {
+        container.removeClass("layui-anim-fadeout");
+        container.addClass("layui-anim layui-anim-scale");
+        container.show();
+    }
+};
+
+closeLogin = function(){
+    let container = jQuery(".container");
+    if(container){
+        container.removeClass("layui-anim-scale");
+        container.addClass("layui-anim-fadeout");
+        setTimeout(function(){
+            container.hide();
+        },500);
+    }
+
+};
+
 function onEventListener(event){
     console.log(event);
     switch (event.type){
@@ -38,8 +59,11 @@ function onEventListener(event){
                 window.location.href = "./music.html"
             }else if(event.currentTarget.id === "blog"){
                 window.location.href = "./blog.html"
+            }else if(event.currentTarget.id === "loginBtn"){
+                openLogin();
             }
             break;
+
         default:
             break;
     }
