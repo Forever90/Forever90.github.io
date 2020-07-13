@@ -6,7 +6,7 @@ html,body{
 body{
     font-family: "华文细黑";
     /*background:url("../res/images/lemon.jpeg") no-repeat;*/
-    background-color: white;
+    background-color: black;
     background-attachment: fixed;
     background-size: 100%;
 }
@@ -48,4 +48,76 @@ main .site-title .site-background{
     padding-top: 10rem;
     text-align: center;
     color: var(--white);
+}
+
+
+button.btn{
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    /*font-family: var(--Livvic);*/
+    cursor: pointer;
+    background: transparent;
+}
+
+button.btn:hover{
+    border: 1px solid black;
+    /*color: var(--white);*/
+}
+.container{
+    margin: 0 5vw;
+}
+
+main .site-content{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+main .post-content{
+    width: 100%;
+}
+
+main .site-content .post-content > .post-image, .post-title,a{
+    padding: 1rem 2rem;
+    color: white;
+    position: relative;
+}
+
+main .site-content .post-content > .post-image .post-info{
+    background: var(--sky);
+    padding: 1rem;
+    position: absolute;
+    bottom: 0%;
+    left: 20vw;
+    border-radius: 3rem;
+}
+
+main .site-content .post-content > .post-image > div{
+    overflow: hidden;
+}
+
+main .site-content .post-content > .post-image .img{
+    width: 100%;
+    transition: all 1s ease;
+}
+
+main .site-content .post-content > .post-image .img:hover{
+    transform: scale(1.3);
+}
+
+main .site-content .post-content > .post-image .post-info span{
+    margin: 0 .5rem;
+}
+
+main .post-content .post-title a{
+    font-family: var(--Anton);
+    font-size: 1.5rem;
+}
+
+.site-content .post-content .post-title .post-btn{
+    border-radius: 0;
+    padding: .7rem 1.5rem;
+    /*background: var(--sky);*/
+
 }
