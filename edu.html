@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教培机构网站</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+            background-color: #303030;
+            scroll-behavior: smooth;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            padding: 5px 10px;
+            transition: opacity 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .navbar a:hover {
+            opacity: 1;
+        }
+
+        /* 汉堡菜单样式 */
+        .navbar .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* 响应式设计：小屏幕下折叠导航栏 */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+                padding: 10px 0;
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
+
+        /* 模块样式 */
+        .module {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background-color: #fff;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            border-bottom: 1px solid #ddd;
+        }
+        .module.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .module:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* 抽屉式展开效果 */
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .module.active .expandable-content {
+            max-height: 500px; /* 根据内容调整 */
+            opacity: 1;
+        }
+
+        /* 图片动画效果 */
+        .expandable-content img {
+            width: 0;
+            height: 0;
+            object-fit: cover;
+            border-radius: 5px;
+            opacity: 0;
+            transform: scale(0);
+            animation: imageReveal 0.5s ease forwards;
+        }
+
+        .module.active .expandable-content img:nth-child(1) {
+            animation-delay: 0.8s;
+        }
+        .module.active .expandable-content img:nth-child(2) {
+            animation-delay: 1.6s;
+        }
+        .module.active .expandable-content img:nth-child(3) {
+            animation-delay: 2.4s;
+        }
+
+        @keyframes imageReveal {
+            to {
+                width: 200px;
+                height: 150px;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1, h2 {
+            margin: 0;
+            font-size: 36px;
+            color: #000000;
+        }
+
+        p {
+            font-size: 16px;
+            color: #ffffff;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            background-color: #787878;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #a1a1a1;
+        }
+
+        /* 首页模块 */
+        #home {
+            background-color: #ffffff;
+        }
+
+        /* 关于我们模块 */
+        #about {
+            background-color: #ffffff;
+        }
+
+        /* 课程介绍模块 */
+        #courses {
+            background-color: #ffffff;
+        }
+
+        /* 学员成果模块 */
+        #achievements {
+            background-color: #ffffff;
+        }
+
+        /* 联系我们模块 */
+        #contact {
+            background-color: #ffffff;
+        }
+
+        /* 文字内容样式 */
+        .module-content {
+            z-index: 1;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 视频背景样式 */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* 遮罩层样式 */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#module1">机构介绍</a>
+            <a href="#module2">课程介绍</a>
+            <a href="#module3">师资力量</a>
+            <a href="#module4">学员成果</a>
+            <a href="#module5">联系我们</a>
+        </div>
+        <div class="menu-icon">&#9776;</div> <!-- 汉堡菜单 -->
+    </nav>
+    
+    <div class="module" id="home">
+        <video class="video-background" autoplay="" muted="" playsinline="" loop="" src="https://coscdn.htmlpage.cn/video/home-hero-bg.mp4"></video>
+        <!-- 遮罩层 -->
+        <div class="overlay"></div>
+        <div class="module-content">
+            <h1>欢迎来到鼎立教育</h1>
+            <p>我们致力于为学生提供优质的教育资源，助力梦想起航。</p>
+            <a href="#about" class="btn">了解更多</a>
+        </div>
+    </div>
+    <div class="module" id="courses">
+        <h2>课程介绍</h2>
+        <p>我们提供数学、英语、物理等多门课程，涵盖小学、初中、高中各阶段。课程内容紧贴考试大纲，帮助学生全面提升成绩。</p>
+        <div class="expandable-content">
+            <img src="https://img2.baidu.com/it/u=464833386,3754034670&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1428" alt="课程1">
+            <img src="https://i0.hdslb.com/bfs/archive/5d5be57e7b6f0ffa4cafd736e31fbec499d6ed7d.jpg" alt="课程2">
+            <img src="https://img1.baidu.com/it/u=2383865327,3976151268&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800" alt="课程3">
+        </div>
+    </div>
+    <div class="module" id="about">
+        <h1>师资力量</h1>
+        <p>XX教培机构成立于2010年，拥有丰富的教学经验和专业的师资团队。我们秉承“因材施教”的理念，帮助学生实现学业目标。</p>
+    </div>
+    <div class="module" id="achievements">
+        <h1>学员成果</h1>
+        <p>我们的学员在各类考试中取得了优异的成绩，多名学生考入重点学校。以下是部分学员的成功案例。</p>
+        <div class="expandable-content">
+            <img src="https://via.placeholder.com/200x150" alt="学员成果1">
+            <img src="https://via.placeholder.com/200x150" alt="学员成果2">
+            <img src="https://via.placeholder.com/200x150" alt="学员成果3">
+        </div>
+    </div>
+    <div class="module" id="contact">
+        <h1>联系我们</h1>
+        <p>电话:123-456-7890 联系人:xxx老师</p>
+    </div>
+
+    <script>
+        const modules = document.querySelectorAll('.module');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        modules.forEach(module => {
+            observer.observe(module);
+        });
+
+        // 课程介绍和学员成果的抽屉式展开效果
+        const expandableModules = document.querySelectorAll('#courses, #achievements');
+        expandableModules.forEach(module => {
+            module.addEventListener('click', () => {
+                module.classList.toggle('active');
+            });
+        });
+
+        // 汉堡菜单点击事件
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
